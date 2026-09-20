@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Monthly 1:1 Connect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Form sections">
+      <div class="brand-block">
+        <span class="brand-mark">1:1</span>
+        <div>
+          <p class="eyebrow">DC Technician + Manager</p>
+          <h1>Monthly 1:1 Connect</h1>
+        </div>
+      </div>
+      <nav class="section-nav">
+        <a href="#details">Session</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#reflection">Reflection</a>
+        <a href="#growth">Growth Mindset</a>
+        <a href="#okrs">Org OKRs</a>
+      </nav>
+      <div class="status-card">
+        <span class="status-dot"></span>
+        <strong>No fields should be left blank.</strong>
+        <p>If not applicable, please enter “N/A.”</p>
+      </div>
+    </aside>
+
+    <main>
+      <section class="hero-panel">
+        <div>
+          <p class="eyebrow">Monthly check-in form</p>
+          <h2>Prepare, review, and share the full 1:1 agenda before the session.</h2>
+          <p class="hero-copy">Please complete the details below and email them at least one day prior to each 1:1 session.</p>
+        </div>
+        <div class="hero-actions">
+          <button type="button" id="printButton">Print / Save PDF</button>
+          <button type="button" id="copyButton" class="secondary">Copy Summary</button>
+        </div>
+      </section>
+
+      <form id="connectForm" class="form-stack">
+        <section class="panel" id="details">
+          <div class="panel-heading">
+            <p class="eyebrow">Before the meeting</p>
+            <h2>Session Details</h2>
+          </div>
+          <div class="grid two">
+            <label>Technician Name<input name="Technician Name" type="text" required></label>
+            <label>Manager Name<input name="Manager Name" type="text" required></label>
+            <label>1:1 Session Date<input name="1:1 Session Date" type="date" required></label>
+            <label>Email Submission Date<input name="Email Submission Date" type="date" required></label>
+          </div>
+          <div class="notice">
+            <strong>Hi Team,</strong>
+            <p>Please complete the details below and email them to me at least one day prior to each 1:1 session. No fields should be left blank. If not applicable, please enter “N/A.” If the information is not submitted on time, the 1:1 meeting will be rescheduled accordingly.</p>
+            <p>Thanks.</p>
+          </div>
+        </section>
+
+        <section class="panel" id="agenda">
+          <div class="panel-heading">
+            <p class="eyebrow">Agenda</p>
+            <h2>Review Period</h2>
+            <div class="review-period">
+              <label>From<input name="Review Period From" type="date" required></label>
+              <label>To<input name="Review Period To" type="date" required></label>
+            </div>
+          </div>
+          <div class="field-list">
+            <label>1. Wellbeing Self -assessment: You are at (1 Lowest - 10 Highest)<select name="1. Wellbeing Self -assessment" required><option value="">Select</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></label>
+            <label>2. New Planned leave: Please note that earlier planning and submission of leave requests contribute positively to the efficiency and success of team operations.<textarea name="2. New Planned leave" required></textarea></label>
+            <div class="compound-row four">
+              <label>3. Safety/Security/Quality: RIR<input name="3. RIR" type="text" required></label>
+              <label>Security Incident<input name="3. Security Incident" type="text" required></label>
+              <label>Human Error<input name="3. Human Error" type="text" required></label>
+              <label>Violation of standard of procedures/policies<input name="3. Violation of standard of procedures/policies" type="text" required></label>
+            </div>
+            <div class="compound-row four">
+              <label>4. Utilization Rate<input name="4. Utilization Rate" type="text" required></label>
+              <label>Var rate<input name="4. Var rate" type="text" required></label>
+              <label>hours logged<input name="4. hours logged" type="text" required></label>
+              <label>Non-SOP ticket number / hours<input name="4. Non-SOP ticket number / hours" type="text" required></label>
+              <label>SOP ticket number / hours<input name="4. SOP ticket number / hours" type="text" required></label>
+            </div>
+            <div class="compound-row four">
+              <label>5. Execution Rate:<input name="5. Execution Rate" type="text" required></label>
+              <label>Assignment Rate:<input name="5. Assignment Rate" type="text" required></label>
+              <label>PQB Rate:<input name="5. PQB Rate" type="text" required></label>
+              <label class="wide-field">Other OKRs including when those covering DIAT's work. Rate:<input name="5. Other OKRs Rate" type="text" required></label>
+            </div>
+            <div class="decision-list">
+              <label class="decision-row"><span>6. 100% Timely escalation of incidents/risks to manager with precise details. Yes or Not achieved</span><select name="6. Timely escalation" required><option value="">Select</option><option>Yes</option><option>Not achieved</option><option>N/A</option></select></label>
+              <label class="decision-row"><span>7. 100% accuracy of remote support case handling, e.g. use the latest email template. Yes or Not achieved</span><select name="7. Remote support accuracy" required><option value="">Select</option><option>Yes</option><option>Not achieved</option><option>N/A</option></select></label>
+              <label class="decision-row"><span>8. 100% Participate in all required meetings or watch recording/check key points if not attended. Yes or Not achieved</span><select name="8. Required meetings" required><option value="">Select</option><option>Yes</option><option>Not achieved</option><option>N/A</option></select></label>
+              <label class="decision-row"><span>9. 100% proper handover of work before planned leave. Yes or Not achieved</span><select name="9. Proper handover" required><option value="">Select</option><option>Yes</option><option>Not achieved</option><option>N/A</option></select></label>
+            </div>
+            <label>10. 100% Demonstrate speed and urgency in the work and adapt to evolving business priorities. Deliver all assigned work with high quality and on time, demonstrating strong execution discipline, ownership, and reliability. Yes or Not achieved<textarea name="10. Speed urgency execution discipline" required></textarea></label>
+            <label>11. 100% Training completion asap, and not on the list and being asked by leadership before due date<textarea name="11. Training completion" required></textarea></label>
+            <label>12. Ops Assurance Compliance Completion Rate for Safety observation/alert button/log SAW/Timely and accurate submission of leave and timesheet<input name="12. Ops Assurance Compliance Completion Rate" type="text" required></label>
+            <label>13. Other Achievements:<textarea name="13. Other Achievements" required></textarea></label>
+            <label>14. Focus areas for next month:<textarea name="14. Focus areas for next month" required></textarea></label>
+            <label>15. Support needed:<textarea name="15. Support needed" required></textarea></label>
+          </div>
+        </section>
+
+        <section class="panel" id="reflection">
+          <div class="panel-heading">
+            <p class="eyebrow">16. Team / Self</p>
+            <h2>Continuous Improvement Reflection</h2>
+          </div>
+          <div class="reflection-grid" role="group" aria-label="16. Team Self Start Stop Do less Do more Do differently">
+            <div class="reflection-header">Focus</div>
+            <div class="reflection-header">Team</div>
+            <div class="reflection-header">Self</div>
+
+            <div class="reflection-topic">Start doing</div>
+            <label><span class="sr-only">Team Start doing</span><textarea name="16. Team - Start doing" required></textarea></label>
+            <label><span class="sr-only">Self Start doing</span><textarea name="16. Self - Start doing" required></textarea></label>
+
+            <div class="reflection-topic">Stop doing</div>
+            <label><span class="sr-only">Team Stop doing</span><textarea name="16. Team - Stop doing" required></textarea></label>
+            <label><span class="sr-only">Self Stop doing</span><textarea name="16. Self - Stop doing" required></textarea></label>
+
+            <div class="reflection-topic">Do less</div>
+            <label><span class="sr-only">Team Do less</span><textarea name="16. Team - Do less" required></textarea></label>
+            <label><span class="sr-only">Self Do less</span><textarea name="16. Self - Do less" required></textarea></label>
+
+            <div class="reflection-topic">Do more</div>
+            <label><span class="sr-only">Team Do more</span><textarea name="16. Team - Do more" required></textarea></label>
+            <label><span class="sr-only">Self Do more</span><textarea name="16. Self - Do more" required></textarea></label>
+
+            <div class="reflection-topic">Do differently</div>
+            <label><span class="sr-only">Team Do differently</span><textarea name="16. Team - Do differently" required></textarea></label>
+            <label><span class="sr-only">Self Do differently</span><textarea name="16. Self - Do differently" required></textarea></label>
+          </div>
+        </section>
+
+        <section class="panel" id="growth">
+          <div class="panel-heading">
+            <p class="eyebrow">17. Growth Mindset – Technical skills, Runbook, CI & AI</p>
+            <h2>Self-reflection on Success Indicators</h2>
+            <p class="section-copy">For quarterly Check-in. 1:1 in Aug to review May-July, in Nov to review Aug- Oct, in Feb to review Nov- Jan, in April to review Feb -April</p>
+          </div>
+          <div class="field-list compact" id="successIndicators"></div>
+        </section>
+
+        <section class="panel" id="okrs">
+          <div class="panel-heading">
+            <p class="eyebrow">Consistently meet all the Org OKRs below：</p>
+            <h2>Org OKRs Checklist</h2>
+          </div>
+          <div class="okr-table" id="okrTable" aria-label="Org OKRs checklist"></div>
+          <div class="objectives-link">
+            <strong>Objectives Checklist:</strong>
+            <a href="https://microsoftapc-my.sharepoint.com/:w:/g/personal/wayao_microsoft_com/IQCdH05tjZ-uRqIAkY_CEmCZAeDmXIfpByqL5p5ZCnhC0A0?e=21bJSQ" target="_blank" rel="noreferrer">DCT Goals - FY27 v1.11.docx</a>
+          </div>
+        </section>
+
+        <section class="panel" id="original" hidden>
+          <div class="panel-heading">
+            <p class="eyebrow">No changes and no deletion</p>
+            <h2>Original Text Version Preserved</h2>
+          </div>
+          <pre class="original-text">Hi Team,
+
+Please complete the details below and email them to me at least one day prior to each 1:1 session.  No fields should be left blank. If not applicable, please enter “N/A.”  If the information is not submitted on time, the 1:1 meeting will be rescheduled accordingly.
+ Thanks. 
+**
+
+**
+**Agenda:**
+**Review Period:** From and To
+
+1. Wellbeing Self -assessment:   You are at  (1 Lowest - 10 Highest)
+2. New Planned leave: Please note that earlier planning and submission of leave requests contribute positively to the efficiency and success of team operations.
+3. Safety/Security/Quality: RIR    Security Incident  Human Error     Violation of standard of procedures/policies 
+4. Utilization Rate   Var rate  hours logged     Non-SOP ticket number   hours  SOP ticket number  hours 
+5. Execution Rate:   Assignment Rate:  PQB Rate:  Other OKRs including when those covering DIAT's work.  Rate: 
+6. 100% Timely escalation of incidents/risks to manager with precise details.  Yes or Not achieved
+7. 100% accuracy of remote support case handling, e.g. use the latest email template. Yes or Not achieved
+8. 100% Participate in all required meetings or watch recording/check key points if not attended. Yes or Not achieved
+9. 100% proper handover of work before planned leave. Yes or Not achieved
+10. 100% Demonstrate speed and urgency in the work and adapt to evolving business priorities. Deliver all assigned work with high quality and on time, demonstrating strong execution discipline, ownership, and reliability.   Yes or Not achieved
+11. 100% Training completion asap, and not on the list and being asked by leadership before due date
+12. Ops Assurance Compliance Completion Rate for Safety observation/alert button/log SAW/Timely and accurate submission of leave and timesheet
+13. Other Achievements:
+14. Focus areas for next month:
+15. Support needed:
+16. Team
+Self
+Start doing
+ 
+ 
+Stop doing
+ 
+ 
+Do less
+ 
+ 
+Do more
+ 
+ 
+Do differently
+
+17. **Growth Mindset – Technical skills, Runbook, CI & AI **
+
+  Self-reflection on **Success Indicators:** ( For quarterly Check-in. 1:1 in Aug to review May-July, in Nov to review Aug- Oct, in Feb to review Nov- Jan, in April to review Feb -April)
+
+- **Consistently demonstrate and often exceed Microsoft cultural expectations and values** through behaviors aligned with respect, integrity, accountability, and growth mindset. 
+Self-reflection Result:
+- **Consistently demonstrate strong ownership and accountability for career growth**, including proactive goal setting, continuous learning, and measurable contribution aligned with
+ the Growth Mindset expectations outlined above. 
+Self-reflection Result:
+- **Consistently meet and often exceed all goals and expectations, including but not limited to the core DCT performance expectations**, while delivering at a higher standard that
+ reflects role maturity, accountability, and increasing scope of impact. 
+Self-reflection Result:
+- **Consistently demonstrate speed, urgency, thoughtful experimentation, including with AI and CI, while prioritizing security and safety, and adapting to evolving business needs** 
+Self-reflection Result:
+- **Consistently receive strong, constructive, and impact-based feedback from managers**, reflecting high-quality work, ownership, and effective collaboration. 
+Self-reflection Result:
+- **Consistently demonstrate clear and measurable impact in all projects participated in**, including defined contributions and ownership areas, tangible outcomes and results delivered,
+ and positive and constructive feedback from project stakeholders 
+Self-reflection Result:
+- **Consistently meet all the Org OKRs below：** 
+Self-reflection Result:
+
+Ops Assurance 
+
+&gt;= 98% 
+
+IT incident drill 
+
+100% 
+
+IT-CE incident drill (Class A) 
+
+100% 
+
+APAC Call Routing Testing 
+
+&lt; 5 mins 
+
+Availability 
+
+0 incidents 
+
+DC Library Acknowledgement  
+
+100% 
+
+Containment KPI 
+
+100% 
+
+Lease DC Daily Health Status 
+
+100% 
+
+Process Defects and Human Error 
+
+0 
+
+TSB 
+
+&lt; 2 months 
+
+Open Repair Item 
+
+Past SLA 
+
+Escalated DPMO 
+
+&lt;3.4 DPMO 
+
+Unreconciled DBD 
+
+0% 
+
+DBD destruction 
+
+&gt;= 95% 
+
+RMA performance 
+
+&gt;98% 
+
+Receive SLA 
+
+&gt;= 95% 
+
+Transfer SLA 
+
+&gt;98% 
+
+Cycle Count SLA 
+
+98% 
+
+Cycle Count Compliance 
+
+100% 
+
+Cycle Count Accuracy 
+
+&gt;= 95% 
+
+LCS Adoption Rate 
+
+&gt;= 90% 
+
+LCS Assignment Rate 
+
+&gt;= 65% 
+
+LCS Execution Rate 
+
+&gt;= 70% 
+
+Mainstream Receive to Cable RtC 
+
+&lt; 12 hours 
+
+Cluster Decom 
+
+&gt;= 95% 
+
+ 
+
+ 
+
+DCT Utilization 
+
+&gt;=60% 
+
+DCT Utilization 
+
+&lt;=10% var 
+
+CEQ and DCT training 
+
+No overdue 
+
+Corp and safety training 
+
+No overdue 
+
+EHS Recordable (RIR) 
+
+No recordable 
+
+Unique Participation rate 
+
+&gt;=75% 
+
+EHS Action Plan Completion 
+
+100% 
+
+NoV 
+
+No NoV 
+
+Env Compliance Issues (Class A) 
+
+No overdue 
+
+Access Violations - Production 
+
+&lt;= 0.02 
+
+Access Violations - Non - Production 
+
+&lt;= 0.02 
+
+DBD events 
+
+&lt;= 0.05 
+
+Physical Access / Bypass Failure 
+
+&lt;= 0.20 
+
+**Objectives Checklist: **
+
+​​[![](https://res.cdn.office.net/assets/fluentui-resources/1.1.0/app-min/assets/item-types/24_2x/docx.png)DCT
+ Goals - FY27 v1.11.docx![](https://res.cdn.office.net/owamail/20260821009.02/resources/images/greyInfo_24.png)](https://microsoftapc-my.sharepoint.com/:w:/g/personal/wayao_microsoft_com/IQCdH05tjZ-uRqIAkY_CEmCZAeDmXIfpByqL5p5ZCnhC0A0?e=21bJSQ)</pre>
+        </section>
+      </form>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
