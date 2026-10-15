@@ -3,400 +3,300 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Monthly 1:1 Connect</title>
+  <meta name="description" content="APAC DC Ops financial planning, procurement and cost optimization workspace.">
+  <title>FinOps Atlas | APAC DC Operations</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="app-shell">
-    <aside class="sidebar" aria-label="Form sections">
-      <div class="brand-block">
-        <span class="brand-mark">1:1</span>
-        <div>
-          <p class="eyebrow">DC Technician + Manager</p>
-          <h1>Monthly 1:1 Connect</h1>
-        </div>
-      </div>
-      <nav class="section-nav">
-        <a href="#details">Session</a>
-        <a href="#agenda">Agenda</a>
-        <a href="#reflection">Reflection</a>
-        <a href="#growth">Growth Mindset</a>
-        <a href="#okrs">Org OKRs</a>
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#dashboard" aria-label="FinOps Atlas home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M7 23V11l9-5 9 5v12l-9 5-9-5Z"/><path d="m7 11 9 5 9-5M16 16v12"/></svg>
+        </span>
+        <span><strong>FinOps Atlas</strong><small>APAC DC Operations</small></span>
+      </a>
+
+      <nav class="nav-list" aria-label="Primary navigation">
+        <button class="nav-item active" data-view="dashboard">
+          <span class="nav-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg></span>
+          Overview
+        </button>
+        <button class="nav-item" data-view="inventory">
+          <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M3 7h18M5 7v13h14V7M9 11h6M8 4h8l1 3H7l1-3Z"/></svg></span>
+          PO &amp; Contracts
+          <span class="nav-count" id="poNavCount">0</span>
+        </button>
+        <button class="nav-item" data-view="budget">
+          <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span>
+          Budgeting
+        </button>
+        <button class="nav-item" data-view="opportunities">
+          <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M8.2 14.5A7 7 0 1 1 16 14.2c-.8.6-1 1.2-1 1.8H9c0-.6-.2-1.1-.8-1.5Z"/></svg></span>
+          Optimization
+          <span class="nav-count accent">7</span>
+        </button>
       </nav>
-      <div class="status-card">
-        <span class="status-dot"></span>
-        <strong>No fields should be left blank.</strong>
-        <p>If not applicable, please enter “N/A.”</p>
+
+      <div class="side-card">
+        <span class="side-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+        <p>Identified savings</p>
+        <strong>$1.84M</strong>
+        <span>7 active opportunities</span>
+        <button data-view="opportunities">Review pipeline <span>→</span></button>
+      </div>
+
+      <div class="profile-block">
+        <span class="avatar">AW</span>
+        <span><strong>Amanda Wang</strong><small>APAC DC Ops Leader</small></span>
+        <button class="icon-button" aria-label="Open account menu">•••</button>
       </div>
     </aside>
 
-    <main>
-      <section class="hero-panel">
-        <div>
-          <p class="eyebrow">Monthly check-in form</p>
-          <h2>Prepare, review, and share the full 1:1 agenda before the session.</h2>
-          <p class="hero-copy">Please complete the details below and email them at least one day prior to each 1:1 session.</p>
+    <div class="workspace">
+      <header class="topbar">
+        <button class="icon-button menu-button" id="menuButton" aria-label="Open navigation">
+          <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <div class="breadcrumb"><span>APAC DC Operations</span><b>/</b><strong id="breadcrumbName">Executive overview</strong></div>
+        <div class="topbar-actions">
+          <label class="global-search">
+            <span class="sr-only">Search workspace</span>
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+            <input id="globalSearch" type="search" placeholder="Search POs, suppliers, campuses…">
+            <kbd>⌘ K</kbd>
+          </label>
+          <button class="icon-button notification-button" aria-label="Notifications">
+            <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg>
+            <span></span>
+          </button>
+          <button class="primary-button compact" id="headerAction" data-action="add-po">
+            <span>＋</span> Add new PO
+          </button>
         </div>
-        <div class="hero-actions">
-          <button type="button" id="printButton">Print / Save PDF</button>
-          <button type="button" id="copyButton" class="secondary">Copy Summary</button>
-        </div>
-      </section>
+      </header>
 
-      <form id="connectForm" class="form-stack">
-        <section class="panel" id="details">
-          <div class="panel-heading">
-            <p class="eyebrow">Before the meeting</p>
-            <h2>Session Details</h2>
-          </div>
-          <div class="grid two">
-            <label>Technician Name<input name="Technician Name" type="text" required></label>
-            <label>Manager Name<input name="Manager Name" type="text" required></label>
-            <label>1:1 Session Date<input name="1:1 Session Date" type="date" required></label>
-            <label>Email Submission Date<input name="Email Submission Date" type="date" required></label>
-          </div>
-          <div class="notice">
-            <strong>Hi Team,</strong>
-            <p>Please complete the details below and email them to me at least one day prior to each 1:1 session. No fields should be left blank. If not applicable, please enter “N/A.” If the information is not submitted on time, the 1:1 meeting will be rescheduled accordingly.</p>
-            <p>Thanks.</p>
-          </div>
-        </section>
-
-        <section class="panel" id="agenda">
-          <div class="panel-heading">
-            <p class="eyebrow">Agenda</p>
-            <h2>Review Period</h2>
-            <div class="review-period">
-              <label>From<input name="Review Period From" type="date" required></label>
-              <label>To<input name="Review Period To" type="date" required></label>
+      <main>
+        <section class="view active" id="dashboardView" data-view-panel="dashboard">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">Thursday, 15 October 2026</p>
+              <h1>Good morning, Amanda.</h1>
+              <p>Here is the financial pulse across APAC data center operations.</p>
+            </div>
+            <div class="heading-actions">
+              <button class="secondary-button" data-action="export-summary">
+                <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 19h14"/></svg>
+                Export brief
+              </button>
+              <label class="period-select">Period
+                <select id="dashboardPeriod"><option>FY2026</option><option>FY2025</option><option>FY2024</option></select>
+              </label>
             </div>
           </div>
-          <div class="field-list">
-            <label>1. Wellbeing Self -assessment: You are at (1 Lowest - 10 Highest)<select name="1. Wellbeing Self -assessment" required><option value="">Select</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></label>
-            <label>2. New Planned leave: Please note that earlier planning and submission of leave requests contribute positively to the efficiency and success of team operations.<textarea name="2. New Planned leave" required></textarea></label>
-            <div class="compound-row four">
-              <label>3. Safety/Security/Quality: RIR<input name="3. RIR" type="text" required></label>
-              <label>Security Incident<input name="3. Security Incident" type="text" required></label>
-              <label>Human Error<input name="3. Human Error" type="text" required></label>
-              <label>Violation of standard of procedures/policies<input name="3. Violation of standard of procedures/policies" type="text" required></label>
+
+          <div class="kpi-grid">
+            <article class="kpi-card">
+              <div class="kpi-top"><span class="kpi-icon blue"><svg viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><span class="trend positive">↗ 3.2%</span></div>
+              <p>Total annual budget</p><h2>$48.60M</h2>
+              <div class="progress"><span style="width:76%"></span></div>
+              <small><b>$36.94M</b> committed · 76%</small>
+            </article>
+            <article class="kpi-card">
+              <div class="kpi-top"><span class="kpi-icon violet"><svg viewBox="0 0 24 24"><path d="M3 7h18M5 7v13h14V7M9 11h6M8 4h8l1 3H7l1-3Z"/></svg></span><span class="trend negative">↗ 5.8%</span></div>
+              <p>Actual spend YTD</p><h2>$34.72M</h2>
+              <div class="metric-detail"><span>CAPEX <b>$19.28M</b></span><span>OPEX <b>$15.44M</b></span></div>
+            </article>
+            <article class="kpi-card">
+              <div class="kpi-top"><span class="kpi-icon green"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><span class="trend positive">12 initiatives</span></div>
+              <p>Realized savings YTD</p><h2>$2.31M</h2>
+              <div class="progress green"><span style="width:84%"></span></div>
+              <small><b>84%</b> of $2.75M target</small>
+            </article>
+            <article class="kpi-card warning">
+              <div class="kpi-top"><span class="kpi-icon amber"><svg viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M10 3 2 20h20L14 3a2.2 2.2 0 0 0-4 0Z"/></svg></span><span class="trend warning-text">Needs attention</span></div>
+              <p>Forecast variance</p><h2>+$1.18M</h2>
+              <div class="metric-detail"><span>Projected <b>$49.78M</b></span><span class="negative-text">2.4% over</span></div>
+            </article>
+          </div>
+
+          <div class="dashboard-grid">
+            <article class="card spend-card">
+              <div class="card-heading">
+                <div><h3>Budget performance</h3><p>Monthly actual vs. plan · USD millions</p></div>
+                <div class="legend"><span><i class="planned"></i>Budget</span><span><i class="actual"></i>Actual</span></div>
+              </div>
+              <div class="chart-area" id="spendChart" aria-label="Monthly budget and actual spend chart"></div>
+            </article>
+
+            <article class="card allocation-card">
+              <div class="card-heading"><div><h3>Spend allocation</h3><p>By category · YTD</p></div><button class="text-button" data-view="budget">View details →</button></div>
+              <div class="donut-wrap">
+                <div class="donut"><div><strong>$34.72M</strong><span>Total actuals</span></div></div>
+                <div class="allocation-list">
+                  <div><span><i class="hardware"></i>Hardware</span><b>$13.19M <small>38%</small></b></div>
+                  <div><span><i class="services"></i>Services</span><b>$10.76M <small>31%</small></b></div>
+                  <div><span><i class="software"></i>Software</span><b>$6.25M <small>18%</small></b></div>
+                  <div><span><i class="facilities"></i>Facilities</span><b>$4.52M <small>13%</small></b></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="card risk-card">
+              <div class="card-heading"><div><h3>Risk &amp; attention</h3><p>Items requiring leader review</p></div><span class="badge danger">4 open</span></div>
+              <div class="risk-list">
+                <button class="risk-item" data-view="inventory">
+                  <span class="risk-icon danger"><svg viewBox="0 0 24 24"><path d="M12 8v5m0 4h.01M12 3 2 21h20L12 3Z"/></svg></span>
+                  <span><strong>3 contracts expire within 60 days</strong><small>$4.2M combined annual value · SG &amp; JP</small></span><b>→</b>
+                </button>
+                <button class="risk-item" data-view="budget">
+                  <span class="risk-icon warning"><svg viewBox="0 0 24 24"><path d="M12 7v5l3 2M21 12a9 9 0 1 1-9-9"/></svg></span>
+                  <span><strong>Japan facilities OPEX trending over</strong><small>8.6% above run rate · review forecast</small></span><b>→</b>
+                </button>
+                <button class="risk-item" data-view="inventory">
+                  <span class="risk-icon blue"><svg viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span>
+                  <span><strong>5 POs pending receipt confirmation</strong><small>$780K may shift into next quarter</small></span><b>→</b>
+                </button>
+                <button class="risk-item" data-view="opportunities">
+                  <span class="risk-icon success"><svg viewBox="0 0 24 24"><path d="m4 13 5 5L20 6"/></svg></span>
+                  <span><strong>Network support consolidation ready</strong><small>$420K validated annual saving</small></span><b>→</b>
+                </button>
+              </div>
+            </article>
+
+            <article class="card campus-card">
+              <div class="card-heading"><div><h3>Campus performance</h3><p>Budget consumption by market</p></div><button class="text-button" data-view="budget">Full report →</button></div>
+              <div class="campus-list">
+                <div><span class="country">SG</span><span><strong>Singapore</strong><small>SGP01 · SGP02</small></span><div class="mini-progress"><i style="width:82%"></i></div><b>82%</b></div>
+                <div><span class="country">JP</span><span><strong>Japan</strong><small>TYO04 · OSA02</small></span><div class="mini-progress warn"><i style="width:91%"></i></div><b class="negative-text">91%</b></div>
+                <div><span class="country">AU</span><span><strong>Australia</strong><small>SYD03 · MEL01</small></span><div class="mini-progress"><i style="width:73%"></i></div><b>73%</b></div>
+                <div><span class="country">IN</span><span><strong>India</strong><small>HYD01 · PNQ02</small></span><div class="mini-progress"><i style="width:68%"></i></div><b>68%</b></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" id="inventoryView" data-view-panel="inventory">
+          <div class="page-heading">
+            <div><p class="eyebrow">Procure-to-pay visibility</p><h1>PO &amp; contract inventory</h1><p>Track five years of commitments, renewals and supplier exposure in one place.</p></div>
+            <div class="heading-actions"><button class="secondary-button" data-action="export-pos"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 19h14"/></svg>Export CSV</button><button class="primary-button" data-action="add-po">＋ Add new PO</button></div>
+          </div>
+          <div class="summary-strip" id="inventorySummary"></div>
+          <article class="card data-card">
+            <div class="table-toolbar">
+              <label class="table-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="poSearch" type="search" placeholder="Search PO, item, supplier or submitter"></label>
+              <div class="filter-group">
+                <select id="poYearFilter" aria-label="Filter by year"><option value="">All years</option></select>
+                <select id="poTypeFilter" aria-label="Filter by type"><option value="">All types</option><option>Hardware</option><option>Service</option><option>Software</option></select>
+                <select id="poCampusFilter" aria-label="Filter by campus"><option value="">All campuses</option></select>
+                <select id="poStatusFilter" aria-label="Filter by status"><option value="">All statuses</option><option>Active</option><option>Expiring</option><option>Completed</option><option>Pending</option></select>
+                <button class="icon-button filter-reset" id="resetPoFilters" aria-label="Reset filters">↻</button>
+              </div>
             </div>
-            <div class="compound-row four">
-              <label>4. Utilization Rate<input name="4. Utilization Rate" type="text" required></label>
-              <label>Var rate<input name="4. Var rate" type="text" required></label>
-              <label>hours logged<input name="4. hours logged" type="text" required></label>
-              <label>Non-SOP ticket number / hours<input name="4. Non-SOP ticket number / hours" type="text" required></label>
-              <label>SOP ticket number / hours<input name="4. SOP ticket number / hours" type="text" required></label>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>PO / item</th><th>Type</th><th>Campus</th><th>Supplier</th><th>CAPEX / OPEX</th><th>Contract term</th><th>Total value</th><th>Status</th><th></th></tr></thead>
+                <tbody id="poTableBody"></tbody>
+              </table>
             </div>
-            <div class="compound-row four">
-              <label>5. Execution Rate:<input name="5. Execution Rate" type="text" required></label>
-              <label>Assignment Rate:<input name="5. Assignment Rate" type="text" required></label>
-              <label>PQB Rate:<input name="5. PQB Rate" type="text" required></label>
-              <label class="wide-field">Other OKRs including when those covering DIAT's work. Rate:<input name="5. Other OKRs Rate" type="text" required></label>
+            <div class="table-footer"><span id="poTableCount"></span><div><button disabled>←</button><button class="active">1</button><button disabled>→</button></div></div>
+          </article>
+        </section>
+
+        <section class="view" id="budgetView" data-view-panel="budget">
+          <div class="page-heading">
+            <div><p class="eyebrow">FY2027 planning cycle</p><h1>Budget planning &amp; actuals</h1><p>Build a defensible plan, monitor actuals and explain every variance.</p></div>
+            <div class="heading-actions"><button class="secondary-button" data-action="export-budget"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 19h14"/></svg>Export report</button><button class="primary-button" data-action="add-budget">＋ Add budget line</button></div>
+          </div>
+          <div class="budget-meta">
+            <label>Planning year<select id="budgetYear"><option>FY2027</option><option>FY2026 actuals</option><option>FY2025 actuals</option><option>FY2024 actuals</option><option>FY2023 actuals</option><option>FY2022 actuals</option></select></label>
+            <div class="planning-status"><span></span><div><strong>Country input in progress</strong><small>Closes 30 October · 15 days remaining</small></div></div>
+            <div class="completion"><span><b>78%</b> complete</span><div><i></i></div></div>
+          </div>
+          <div class="kpi-grid budget-kpis">
+            <article class="kpi-card"><p>Proposed budget</p><h2 id="proposedBudget">$51.34M</h2><small><span class="trend positive">↗ 5.6%</span> vs. FY2026</small></article>
+            <article class="kpi-card"><p>CAPEX</p><h2 id="capexBudget">$28.87M</h2><small>56.2% of proposal</small></article>
+            <article class="kpi-card"><p>OPEX</p><h2 id="opexBudget">$22.47M</h2><small>43.8% of proposal</small></article>
+            <article class="kpi-card"><p>Unallocated reserve</p><h2>$2.10M</h2><small>4.1% contingency</small></article>
+          </div>
+          <article class="card data-card">
+            <div class="table-toolbar budget-toolbar">
+              <div class="segmented"><button class="active" data-budget-scope="all">All lines</button><button data-budget-scope="capex">CAPEX</button><button data-budget-scope="opex">OPEX</button></div>
+              <label class="table-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="budgetSearch" type="search" placeholder="Search budget lines"></label>
+              <span class="edit-hint"><span></span> Actuals are editable</span>
             </div>
-            <div class="decision-list">
-              <label class="decision-row"><span>6. 100% Timely escalation of incidents/risks to manager with precise details. Yes or Not achieved</span><select name="6. Timely escalation" required><option value="">Select</option><option>Yes</option><option>Not achieved</option><option>N/A</option></select></label>
-              <label class="decision-row"><span>7. 100% accuracy of remote support case handling, e.g. use the latest email template. Yes or Not achieved</span><select name="7. Remote support accuracy" required><option value="">Select</option><option>Yes</option><option>Not achieved</option><option>N/A</option></select></label>
-              <label class="decision-row"><span>8. 100% Participate in all required meetings or watch recording/check key points if not attended. Yes or Not achieved</span><select name="8. Required meetings" required><option value="">Select</option><option>Yes</option><option>Not achieved</option><option>N/A</option></select></label>
-              <label class="decision-row"><span>9. 100% proper handover of work before planned leave. Yes or Not achieved</span><select name="9. Proper handover" required><option value="">Select</option><option>Yes</option><option>Not achieved</option><option>N/A</option></select></label>
+            <div class="table-wrap budget-table-wrap">
+              <table class="budget-table">
+                <thead><tr><th>Cost center / description</th><th>Campus</th><th>Category</th><th>Owner</th><th>FY2026 actual</th><th>FY2027 budget</th><th>Actual / forecast</th><th>Variance</th><th>Notes</th></tr></thead>
+                <tbody id="budgetTableBody"></tbody>
+                <tfoot id="budgetTableFoot"></tfoot>
+              </table>
             </div>
-            <label>10. 100% Demonstrate speed and urgency in the work and adapt to evolving business priorities. Deliver all assigned work with high quality and on time, demonstrating strong execution discipline, ownership, and reliability. Yes or Not achieved<textarea name="10. Speed urgency execution discipline" required></textarea></label>
-            <label>11. 100% Training completion asap, and not on the list and being asked by leadership before due date<textarea name="11. Training completion" required></textarea></label>
-            <label>12. Ops Assurance Compliance Completion Rate for Safety observation/alert button/log SAW/Timely and accurate submission of leave and timesheet<input name="12. Ops Assurance Compliance Completion Rate" type="text" required></label>
-            <label>13. Other Achievements:<textarea name="13. Other Achievements" required></textarea></label>
-            <label>14. Focus areas for next month:<textarea name="14. Focus areas for next month" required></textarea></label>
-            <label>15. Support needed:<textarea name="15. Support needed" required></textarea></label>
-          </div>
+          </article>
         </section>
 
-        <section class="panel" id="reflection">
-          <div class="panel-heading">
-            <p class="eyebrow">16. Team / Self</p>
-            <h2>Continuous Improvement Reflection</h2>
+        <section class="view" id="opportunitiesView" data-view-panel="opportunities">
+          <div class="page-heading">
+            <div><p class="eyebrow">Cost optimization pipeline</p><h1>Turn insights into savings</h1><p>Prioritize initiatives by value, confidence and speed to realization.</p></div>
+            <button class="primary-button" id="addOpportunityButton">＋ Add opportunity</button>
           </div>
-          <div class="reflection-grid" role="group" aria-label="16. Team Self Start Stop Do less Do more Do differently">
-            <div class="reflection-header">Focus</div>
-            <div class="reflection-header">Team</div>
-            <div class="reflection-header">Self</div>
-
-            <div class="reflection-topic">Start doing</div>
-            <label><span class="sr-only">Team Start doing</span><textarea name="16. Team - Start doing" required></textarea></label>
-            <label><span class="sr-only">Self Start doing</span><textarea name="16. Self - Start doing" required></textarea></label>
-
-            <div class="reflection-topic">Stop doing</div>
-            <label><span class="sr-only">Team Stop doing</span><textarea name="16. Team - Stop doing" required></textarea></label>
-            <label><span class="sr-only">Self Stop doing</span><textarea name="16. Self - Stop doing" required></textarea></label>
-
-            <div class="reflection-topic">Do less</div>
-            <label><span class="sr-only">Team Do less</span><textarea name="16. Team - Do less" required></textarea></label>
-            <label><span class="sr-only">Self Do less</span><textarea name="16. Self - Do less" required></textarea></label>
-
-            <div class="reflection-topic">Do more</div>
-            <label><span class="sr-only">Team Do more</span><textarea name="16. Team - Do more" required></textarea></label>
-            <label><span class="sr-only">Self Do more</span><textarea name="16. Self - Do more" required></textarea></label>
-
-            <div class="reflection-topic">Do differently</div>
-            <label><span class="sr-only">Team Do differently</span><textarea name="16. Team - Do differently" required></textarea></label>
-            <label><span class="sr-only">Self Do differently</span><textarea name="16. Self - Do differently" required></textarea></label>
+          <div class="optimization-hero">
+            <div><span>FY2026 identified value</span><h2>$1.84M</h2><p><b>$1.12M</b> validated · <b>$720K</b> under assessment</p></div>
+            <div class="optimization-meter"><div><i style="width:61%"></i></div><span><b>61%</b> validated</span><span>Target $2.50M</span></div>
           </div>
+          <div class="opportunity-grid" id="opportunityGrid"></div>
         </section>
-
-        <section class="panel" id="growth">
-          <div class="panel-heading">
-            <p class="eyebrow">17. Growth Mindset – Technical skills, Runbook, CI & AI</p>
-            <h2>Self-reflection on Success Indicators</h2>
-            <p class="section-copy">For quarterly Check-in. 1:1 in Aug to review May-July, in Nov to review Aug- Oct, in Feb to review Nov- Jan, in April to review Feb -April</p>
-          </div>
-          <div class="field-list compact" id="successIndicators"></div>
-        </section>
-
-        <section class="panel" id="okrs">
-          <div class="panel-heading">
-            <p class="eyebrow">Consistently meet all the Org OKRs below：</p>
-            <h2>Org OKRs Checklist</h2>
-          </div>
-          <div class="okr-table" id="okrTable" aria-label="Org OKRs checklist"></div>
-          <div class="objectives-link">
-            <strong>Objectives Checklist:</strong>
-            <a href="https://microsoftapc-my.sharepoint.com/:w:/g/personal/wayao_microsoft_com/IQCdH05tjZ-uRqIAkY_CEmCZAeDmXIfpByqL5p5ZCnhC0A0?e=21bJSQ" target="_blank" rel="noreferrer">DCT Goals - FY27 v1.11.docx</a>
-          </div>
-        </section>
-
-        <section class="panel" id="original" hidden>
-          <div class="panel-heading">
-            <p class="eyebrow">No changes and no deletion</p>
-            <h2>Original Text Version Preserved</h2>
-          </div>
-          <pre class="original-text">Hi Team,
-
-Please complete the details below and email them to me at least one day prior to each 1:1 session.  No fields should be left blank. If not applicable, please enter “N/A.”  If the information is not submitted on time, the 1:1 meeting will be rescheduled accordingly.
- Thanks. 
-**
-
-**
-**Agenda:**
-**Review Period:** From and To
-
-1. Wellbeing Self -assessment:   You are at  (1 Lowest - 10 Highest)
-2. New Planned leave: Please note that earlier planning and submission of leave requests contribute positively to the efficiency and success of team operations.
-3. Safety/Security/Quality: RIR    Security Incident  Human Error     Violation of standard of procedures/policies 
-4. Utilization Rate   Var rate  hours logged     Non-SOP ticket number   hours  SOP ticket number  hours 
-5. Execution Rate:   Assignment Rate:  PQB Rate:  Other OKRs including when those covering DIAT's work.  Rate: 
-6. 100% Timely escalation of incidents/risks to manager with precise details.  Yes or Not achieved
-7. 100% accuracy of remote support case handling, e.g. use the latest email template. Yes or Not achieved
-8. 100% Participate in all required meetings or watch recording/check key points if not attended. Yes or Not achieved
-9. 100% proper handover of work before planned leave. Yes or Not achieved
-10. 100% Demonstrate speed and urgency in the work and adapt to evolving business priorities. Deliver all assigned work with high quality and on time, demonstrating strong execution discipline, ownership, and reliability.   Yes or Not achieved
-11. 100% Training completion asap, and not on the list and being asked by leadership before due date
-12. Ops Assurance Compliance Completion Rate for Safety observation/alert button/log SAW/Timely and accurate submission of leave and timesheet
-13. Other Achievements:
-14. Focus areas for next month:
-15. Support needed:
-16. Team
-Self
-Start doing
- 
- 
-Stop doing
- 
- 
-Do less
- 
- 
-Do more
- 
- 
-Do differently
-
-17. **Growth Mindset – Technical skills, Runbook, CI & AI **
-
-  Self-reflection on **Success Indicators:** ( For quarterly Check-in. 1:1 in Aug to review May-July, in Nov to review Aug- Oct, in Feb to review Nov- Jan, in April to review Feb -April)
-
-- **Consistently demonstrate and often exceed Microsoft cultural expectations and values** through behaviors aligned with respect, integrity, accountability, and growth mindset. 
-Self-reflection Result:
-- **Consistently demonstrate strong ownership and accountability for career growth**, including proactive goal setting, continuous learning, and measurable contribution aligned with
- the Growth Mindset expectations outlined above. 
-Self-reflection Result:
-- **Consistently meet and often exceed all goals and expectations, including but not limited to the core DCT performance expectations**, while delivering at a higher standard that
- reflects role maturity, accountability, and increasing scope of impact. 
-Self-reflection Result:
-- **Consistently demonstrate speed, urgency, thoughtful experimentation, including with AI and CI, while prioritizing security and safety, and adapting to evolving business needs** 
-Self-reflection Result:
-- **Consistently receive strong, constructive, and impact-based feedback from managers**, reflecting high-quality work, ownership, and effective collaboration. 
-Self-reflection Result:
-- **Consistently demonstrate clear and measurable impact in all projects participated in**, including defined contributions and ownership areas, tangible outcomes and results delivered,
- and positive and constructive feedback from project stakeholders 
-Self-reflection Result:
-- **Consistently meet all the Org OKRs below：** 
-Self-reflection Result:
-
-Ops Assurance 
-
-&gt;= 98% 
-
-IT incident drill 
-
-100% 
-
-IT-CE incident drill (Class A) 
-
-100% 
-
-APAC Call Routing Testing 
-
-&lt; 5 mins 
-
-Availability 
-
-0 incidents 
-
-DC Library Acknowledgement  
-
-100% 
-
-Containment KPI 
-
-100% 
-
-Lease DC Daily Health Status 
-
-100% 
-
-Process Defects and Human Error 
-
-0 
-
-TSB 
-
-&lt; 2 months 
-
-Open Repair Item 
-
-Past SLA 
-
-Escalated DPMO 
-
-&lt;3.4 DPMO 
-
-Unreconciled DBD 
-
-0% 
-
-DBD destruction 
-
-&gt;= 95% 
-
-RMA performance 
-
-&gt;98% 
-
-Receive SLA 
-
-&gt;= 95% 
-
-Transfer SLA 
-
-&gt;98% 
-
-Cycle Count SLA 
-
-98% 
-
-Cycle Count Compliance 
-
-100% 
-
-Cycle Count Accuracy 
-
-&gt;= 95% 
-
-LCS Adoption Rate 
-
-&gt;= 90% 
-
-LCS Assignment Rate 
-
-&gt;= 65% 
-
-LCS Execution Rate 
-
-&gt;= 70% 
-
-Mainstream Receive to Cable RtC 
-
-&lt; 12 hours 
-
-Cluster Decom 
-
-&gt;= 95% 
-
- 
-
- 
-
-DCT Utilization 
-
-&gt;=60% 
-
-DCT Utilization 
-
-&lt;=10% var 
-
-CEQ and DCT training 
-
-No overdue 
-
-Corp and safety training 
-
-No overdue 
-
-EHS Recordable (RIR) 
-
-No recordable 
-
-Unique Participation rate 
-
-&gt;=75% 
-
-EHS Action Plan Completion 
-
-100% 
-
-NoV 
-
-No NoV 
-
-Env Compliance Issues (Class A) 
-
-No overdue 
-
-Access Violations - Production 
-
-&lt;= 0.02 
-
-Access Violations - Non - Production 
-
-&lt;= 0.02 
-
-DBD events 
-
-&lt;= 0.05 
-
-Physical Access / Bypass Failure 
-
-&lt;= 0.20 
-
-**Objectives Checklist: **
-
-​​[![](https://res.cdn.office.net/assets/fluentui-resources/1.1.0/app-min/assets/item-types/24_2x/docx.png)DCT
- Goals - FY27 v1.11.docx![](https://res.cdn.office.net/owamail/20260821009.02/resources/images/greyInfo_24.png)](https://microsoftapc-my.sharepoint.com/:w:/g/personal/wayao_microsoft_com/IQCdH05tjZ-uRqIAkY_CEmCZAeDmXIfpByqL5p5ZCnhC0A0?e=21bJSQ)</pre>
-        </section>
-      </form>
-    </main>
+      </main>
+    </div>
   </div>
 
+  <dialog id="poDialog">
+    <form method="dialog" id="poForm">
+      <div class="dialog-heading"><div><p class="eyebrow">New commitment</p><h2>Add PO or contract</h2></div><button class="icon-button" value="cancel" aria-label="Close">×</button></div>
+      <div class="form-grid">
+        <label>PO number<input name="poNumber" required placeholder="PO-2026-000"></label>
+        <label>Item name<input name="item" required placeholder="e.g. UPS maintenance"></label>
+        <label class="full">Description<textarea name="description" required placeholder="Scope and business purpose"></textarea></label>
+        <label>Classification<select name="classification" required><option>OPEX</option><option>CAPEX</option></select></label>
+        <label>Type<select name="type" required><option>Service</option><option>Hardware</option><option>Software</option></select></label>
+        <label>Total value (USD)<input name="value" required type="number" min="0" step="1000" placeholder="250000"></label>
+        <label>Supplier<input name="supplier" required placeholder="Supplier legal name"></label>
+        <label>Campus<select name="campus" required><option>SGP01</option><option>SGP02</option><option>TYO04</option><option>OSA02</option><option>SYD03</option><option>MEL01</option><option>HYD01</option><option>PNQ02</option></select></label>
+        <label>Contract term<select name="term" required><option>1 year</option><option>2 years</option><option>3 years</option><option>5 years</option><option>One-time</option></select></label>
+        <label>Start date<input name="startDate" type="date" required></label>
+        <label>End date<input name="endDate" type="date" required></label>
+        <label>Submitter<input name="submitter" required placeholder="Full name"></label>
+      </div>
+      <div class="dialog-actions"><button class="secondary-button" value="cancel">Cancel</button><button class="primary-button" value="default">Save commitment</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="budgetDialog">
+    <form method="dialog" id="budgetForm">
+      <div class="dialog-heading"><div><p class="eyebrow">FY2027 proposal</p><h2>Add budget line</h2></div><button class="icon-button" value="cancel" aria-label="Close">×</button></div>
+      <div class="form-grid">
+        <label>Cost center<input name="costCenter" required placeholder="APAC-0000"></label>
+        <label>Line item<input name="description" required placeholder="Budget item description"></label>
+        <label>Campus<select name="campus" required><option>Regional</option><option>SGP01</option><option>SGP02</option><option>TYO04</option><option>OSA02</option><option>SYD03</option><option>MEL01</option><option>HYD01</option><option>PNQ02</option></select></label>
+        <label>Classification<select name="classification" required><option>OPEX</option><option>CAPEX</option></select></label>
+        <label>Category<select name="category" required><option>Hardware</option><option>Services</option><option>Software</option><option>Facilities</option></select></label>
+        <label>Budget owner<input name="owner" required placeholder="Country owner"></label>
+        <label>FY2026 actual (USD)<input name="priorActual" required type="number" min="0" step="1000"></label>
+        <label>FY2027 budget (USD)<input name="budget" required type="number" min="0" step="1000"></label>
+        <label class="full">Business justification<textarea name="notes" required placeholder="Demand driver, quantity, unit cost and assumptions"></textarea></label>
+      </div>
+      <div class="dialog-actions"><button class="secondary-button" value="cancel">Cancel</button><button class="primary-button" value="default">Add to plan</button></div>
+    </form>
+  </dialog>
+
+  <aside class="detail-drawer" id="detailDrawer" aria-hidden="true">
+    <div class="drawer-heading"><div><p class="eyebrow">Commitment detail</p><h2 id="drawerTitle">PO details</h2></div><button class="icon-button" id="closeDrawer" aria-label="Close details">×</button></div>
+    <div id="drawerContent"></div>
+  </aside>
+  <div class="scrim" id="scrim"></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="app.js"></script>
 </body>

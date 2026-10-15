@@ -1,24 +1,19 @@
-# Monthly 1:1 Connect
+# FinOps Atlas
 
-A static web application for DC technicians and managers to prepare monthly 1:1 catch-ups.
+FinOps Atlas is a static, browser-based financial operations workspace for APAC data center country leaders.
 
-Open `index.html` in a browser to use the form. The app includes:
+## Capabilities
 
-- Complete monthly 1:1 agenda fields.
-- Review Period month and year dropdowns.
-- Team/Self continuous-improvement reflection fields.
-- Quarterly Growth Mindset success-indicator self-reflections.
-- The full Org OKRs checklist.
-- A preserved original-template section.
-- Mandatory-field validation before Print / Save PDF or Copy Summary.# Monthly 1:1 Connect
+- Executive dashboard with budget, actuals, forecast variance, savings, campus performance and operational risks.
+- Five-year PO and contract inventory with detailed classification, supplier, campus, term, submitter and lifecycle data.
+- Search, filter, commitment detail and CSV export workflows.
+- FY2027 budgeting workspace with CAPEX/OPEX lines, owners, business justification, editable actuals/forecast and automatic variance calculations.
+- Cost-optimization pipeline ranked by value, maturity and confidence.
+- Browser-local persistence for new POs, budget lines and edited actuals.
+- Responsive layouts for desktop, tablet and mobile.
 
-A static web application for DC technicians and managers to prepare monthly 1:1 catch-ups.
+## Run
 
-Open `index.html` in a browser to use the form. The app includes:
+Open `index.html` directly in a modern browser, or serve the directory with any static web server.
 
-- The complete agenda and review-period fields from the text template.
-- Team/Self continuous-improvement reflection fields.
-- Quarterly Growth Mindset success-indicator self-reflections.
-- The full Org OKRs checklist.
-- A preserved original-template section so the source wording remains available without deletion.
-- Print / Save PDF and Copy Summary actions.
+All sample values are representative demo data and should be replaced with approved financial records before production use.
